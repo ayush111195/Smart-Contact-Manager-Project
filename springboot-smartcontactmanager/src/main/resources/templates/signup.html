@@ -1,13 +1,96 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
 <head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
+<meta charset="UTF-8" />
+<title>Document</title>
 </head>
 <body>
-	
+
 	<section>
-	<h1>This Is Signup Page </h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+
+					<div class="my-card mt-3">
+					
+					<img  style="width:100px;"alt="" src="" th:src="@{/IMAGE/sign-up.png}">
+						<h1 class="text-center" style=color:bg-primary>Register Here!!</h1>
+					
+
+					<form action="" th:action="@{/do_register}" method="post">
+
+
+
+
+						<!-- name field -->
+						<div class="mb-3">
+							<label for="name_field" class="form-label">User
+								Name</label>
+								 <input
+								  type="text"
+								   class="form-control"
+								id="name_field"
+								 placeholder="Enter Here" >
+							</div>
+						<!-- Email field -->
+
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Email
+								Address</label>
+								 <input
+								  type="email"
+								   class="form-control"
+								id="exampleInputEmail1"
+								 aria-describedby="emailHelp"
+								  placeholder="Enter Here">
+							<div id="emailHelp" class="form-text">We'll never share
+								your email with anyone else.</div>
+						</div>
+						
+						<!-- Password field -->
+                             <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+     type="password"
+      class="form-control"
+       id="exampleInputPassword1"
+       placeholder="Enter Here">
+  </div>
+  
+  <!-- About field -->
+  <div class="form-group">
+  
+  <textarea
+    placeholder="Enter Something your Self"
+    rows="3" 
+    class="form-control"
+    >
+    </textarea>
+  
+  </div>
+  
+  <!-- check box field -->
+  <div class="mb-3 " >
+    <input type="checkbox" class="form-check-input" >
+    <label class="form-check-label" for="exampleCheck1">Check Me Out</label>
+  </div>
+  <div class="container text-center">
+   <!--1 button field -->
+   <button type="submit" class="btn bg-primary btn-block text-white" >Submit</button>
+
+
+ <!--2 button field -->
+   <button type="reset" class="btn btn-warning btn-block text-white ">Reset</button>
+  </div>
+
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+		</div>
 	</section>
 </body>
 </html>
