@@ -14,11 +14,16 @@
 
 					<div class="my-card mt-3">
 					
+					<div th:if="${session.message}" th:classappend="${session.message.type}"class="alert" role="alert">
+  <p th:text="${session.message.content}"></p>
+ 
+</div> 
+					
 					<img  style="width:100px;"alt="" src="" th:src="@{/IMAGE/sign-up.png}">
 						<h1 class="text-center" style=color:bg-primary>Register Here!!</h1>
 					
 
-					<form action="" th:action="@{/do_register}" method="post">
+					<form novalidate  action="" th:action="@{/do_register}" method="post" th:object="${user}">
 
 
 
@@ -28,10 +33,17 @@
 							<label for="name_field" class="form-label">User
 								Name</label>
 								 <input
+								 name="name"
 								  type="text"
-								   class="form-control"
+								   class="form-control "
+								   th:classappend="${#fields.hasErrors('name') ?'is-invalid':''}"
 								id="name_field"
-								 placeholder="Enter Here" >
+								 placeholder="Enter Here"
+								 th:value="${user.name}"
+								  >
+								  <div class="invalid-feedback" th:each="e:${#fields.errors('name')}"th:text="${e}">
+                                 
+                                  </div>
 							</div>
 						<!-- Email field -->
 
@@ -39,11 +51,13 @@
 							<label for="exampleInputEmail1" class="form-label">Email
 								Address</label>
 								 <input
+								 name="email"
 								  type="email"
 								   class="form-control"
 								id="exampleInputEmail1"
 								 aria-describedby="emailHelp"
-								  placeholder="Enter Here">
+								  placeholder="Enter Here"
+								  th:value="${user.email}">
 							<div id="emailHelp" class="form-text">We'll never share
 								your email with anyone else.</div>
 						</div>
@@ -52,27 +66,33 @@
                              <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input
+    name="password"
      type="password"
       class="form-control"
        id="exampleInputPassword1"
-       placeholder="Enter Here">
+       placeholder="Enter Here"
+   >
   </div>
   
   <!-- About field -->
   <div class="form-group">
   
   <textarea
+  name="about"
     placeholder="Enter Something your Self"
     rows="3" 
     class="form-control"
-    >
+    th:value="${user.about}" >
     </textarea>
   
   </div>
   
   <!-- check box field -->
   <div class="mb-3 " >
-    <input type="checkbox" class="form-check-input" >
+    <input
+    name="agreement"
+     type="checkbox"
+      class="form-check-input" >
     <label class="form-check-label" for="exampleCheck1">Check Me Out</label>
   </div>
   <div class="container text-center">
