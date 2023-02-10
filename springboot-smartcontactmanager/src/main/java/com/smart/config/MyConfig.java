@@ -53,7 +53,7 @@ public class MyConfig  {
 	        http.authorizeRequests()
 	                .requestMatchers("/admin/**").hasRole("ADMIN")
 	                .requestMatchers("/user/**").hasRole("USER")
-	                .requestMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+	                .requestMatchers("/**").permitAll().and().formLogin().loginPage("/signin").and().csrf().disable();
 
 	        http.formLogin().defaultSuccessUrl("/user/index", true);
 

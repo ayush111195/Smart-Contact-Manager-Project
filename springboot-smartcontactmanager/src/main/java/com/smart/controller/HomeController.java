@@ -29,6 +29,8 @@ public class HomeController {
 	@Autowired
 	private UserRepo userRepo;
 
+	//handler for custom home--->>
+	
 	@GetMapping("/")
 	public String home(Model m) {
 		m.addAttribute("title", "Home-Smart Contact Manager");
@@ -36,6 +38,8 @@ public class HomeController {
 
 	}
 
+	//handler for custom about--->>
+	
 	@GetMapping("/about")
 	public String about(Model m) {
 		m.addAttribute("title", "About-Smart Contact Manager");
@@ -43,6 +47,8 @@ public class HomeController {
 
 	}
 
+	//handler for custom signup--->>
+	
 	@GetMapping("/signup")
 	public String signup(Model m) {
 		m.addAttribute("title", "signup-Smart Contact Manager");
@@ -96,5 +102,16 @@ public class HomeController {
 			return "signup";
 		}
 
+	}
+	
+	//handler for custom login--->>
+	
+	@GetMapping("/signin")
+	public String customLoging(Model m)
+	{
+		m.addAttribute("title", "login-Smart Contact Manager");
+
+		return"login";
+		
 	}
 }
