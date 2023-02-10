@@ -11,7 +11,7 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 	
 	// Make A Query Get A All User By Name -->>
 	
-     @Query("select u from User u where u.email= : email")
+     @Query("select u from User u where u.email=:email")
 	public User getUserByUserName(@Param("email") String email);
 	
 }

@@ -3,6 +3,7 @@ package com.smart.controller;
 import java.util.EmptyStackException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,9 @@ import jakarta.websocket.Session;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncodery;
 
 	@Autowired
 	private UserRepo userRepo;
@@ -68,9 +72,10 @@ public class HomeController {
 				return"signup";
 			}
 
-			user.setRole("RoLe_User");
+			user.setRole("ROLE_USER");
 			user.setEnabled(true);
 			user.setImageUrl("image");
+			user.setPassword(passwordEncodery.encode(user.getPassword()));
 
 			System.out.println("Agreement" + agreement);
 			System.out.println("user" + user);
