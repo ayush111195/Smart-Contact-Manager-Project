@@ -20,11 +20,19 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form id="login-form" class="form" th:action="@{/signin}" action="#" method="post">
 
                   
 
                   <h5 class="text-center" style="letter-spacing: 1px;">Sign into your account</h5>
+                  
+                  <div th:if="${param.error}" class="alert alert-danger">
+                  Invalid User Name And Password!!!
+                  </div>
+                  
+                   <div th:if="${param.logout}" class="alert alert-success">
+                  You Have Been Logout!!!
+                  </div>
 
                   <div class="form-outline mb-4">
                     <input 
