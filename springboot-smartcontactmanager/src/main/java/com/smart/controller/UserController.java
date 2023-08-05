@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
 	@RequestMapping("/index")
-	public String dashboard() {
+	public  String dashboard() {
 		return "normal/user_dashboard";
 
 	}
