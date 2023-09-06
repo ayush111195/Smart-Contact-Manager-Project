@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.smart.entities.User;
 
-public interface UserRepo  extends JpaRepository<User, Integer>{
+public interface UserRepo extends JpaRepository<User, Integer>{
 	
 	
 	// Make A Query Get A All User By Name -->>
